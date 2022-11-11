@@ -1,13 +1,20 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private EnemyBehavior _enemy;
-    [SerializeField] private int _enemiesCount = 5;
-    [SerializeField] private int _spawnRadius = 50;
-    [SerializeField] private Transform _target;
+    
+    private int _enemiesCount = 5;
+    private int _spawnRadius = 50;
+    private Transform _target;
+
+    public void Initialize(int enemiesCount, int spawnRadius, Transform target)
+    {
+        _enemiesCount = enemiesCount;
+        _spawnRadius = spawnRadius;
+        _target = target;
+    }
 
     private void Start()
     {
@@ -29,4 +36,5 @@ public class EnemySpawner : MonoBehaviour
 
         enemy.transform.position = enemyPosition;
     }
+    
 }
